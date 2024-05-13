@@ -49,11 +49,7 @@ public class WishListServiceIntegrationTest {
 
   @Test
   public void wishList_shouldReturnProperList() {
-    assertEquals(3, wishListService.wishListByCustomerId(1L));
+    assertEquals(3, wishListService.wishListByCustomerId(1L).size());
   }
 
-  @AfterEach
-  public void afterEach() {
-    System.out.println("After Each");
-  }
 }
