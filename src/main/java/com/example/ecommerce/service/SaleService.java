@@ -1,5 +1,7 @@
 package com.example.ecommerce.service;
 
+import com.example.ecommerce.dto.MaxDaySaleDto;
+
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Date;
@@ -9,11 +11,11 @@ public interface SaleService {
 
   BigDecimal totalSaleAmountToday();
 
-  Date maxSaleDay(Instant startDate, Instant endDate);
+  MaxDaySaleDto maxSaleDay(Instant startDate, Instant endDate);
 
-  List<Integer> topSellingItemByAmount(int size);
+  List<Long> topSellingItemByAmount();
 
-  List<Integer> topSellingItemLastMonthByNoOfSale(int size);
+  List<Long> topSellingItemLastMonthByNoOfSale();
 
 
 }

@@ -14,8 +14,11 @@ import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
@@ -52,4 +55,20 @@ public class SaleServiceIntegrationTest {
     assertEquals(BigDecimal.valueOf(2500), saleService.totalSaleAmountToday());
   }
 
+
+  @Test
+  public void maxSaleDateInDateRange_shouldBeFine() {
+    assertEquals("2024-03-13", saleService.maxSaleDay(Instant.parse("2024-03-01T00:00:00.000Z"), Instant.parse("2024-03-31T00:00:00.000Z")).getMaxDate().toString());
+  }
+
+  @Test
+  public void topSellingItemForSaleAmount() {
+    assertIterableEquals(List.of(1L, 2L, 7L, 4L, 5L), saleService.topSellingItemByAmount());
+  }
+
+  @Test
+  public void topSellingItemForNoOfSell() {
+    System.out.println(saleService.topSellingItemLastMonthByNoOfSale());
+    assertIterableEquals(List.of(11L, 14L, 15L, 10L, 12L), saleService.topSellingItemLastMonthByNoOfSale());
+  }
 }
