@@ -2,7 +2,6 @@ package com.example.ecommerce.integration;
 
 import com.example.ecommerce.service.WishListService;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

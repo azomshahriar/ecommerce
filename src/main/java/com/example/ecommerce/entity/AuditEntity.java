@@ -3,8 +3,15 @@ package com.example.ecommerce.entity;
 import java.time.Instant;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 
-public class AuditEntity {
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+@MappedSuperclass
+public abstract class AuditEntity {
 
   @Column(name = "created_date")
   private Instant createdDate;

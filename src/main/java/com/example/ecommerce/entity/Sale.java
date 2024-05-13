@@ -1,5 +1,7 @@
 package com.example.ecommerce.entity;
 
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
@@ -9,8 +11,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "sale")
 public class Sale extends AuditEntity {
